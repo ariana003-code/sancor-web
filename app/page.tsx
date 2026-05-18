@@ -6,13 +6,17 @@ export default function Home() {
   const [showMenu, setShowMenu] = useState(false);
   const [page, setPage] = useState("inicio");
 
- const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  setForm({
-    ...form,
-    [e.target.name]: e.target.value,
+  // FORM PRINCIPAL
+  const [form, setForm] = useState({
+    nombre: "",
+    telefono: "",
+    dni: "",
+    email: "",
+    localidad: "",
+    interes: "",
   });
-};
 
+  // CONSULTA
   const [consulta, setConsulta] = useState({
     nombre: "",
     email: "",
@@ -22,49 +26,61 @@ export default function Home() {
     mensaje: "",
   });
 
-  const handleChange = (e) => {
+  // HANDLE CHANGE (UN SOLO, CORRECTO)
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
   };
 
-const enviarMail = async (e) => {
-  e.preventDefault();
+  // ENVIAR FORM A FORMSPREE
+  const enviarMail = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  const body = `
-Nombre: ${form.Nombre}
-Teléfono: ${form.Telefono}
-DNI: ${form.DNI}
-Email: ${form.Email}
-Localidad: ${form.Localidad}
+    const body = `
+Nombre: ${form.nombre}
+Teléfono: ${form.telefono}
+DNI: ${form.dni}
+Email: ${form.email}
+Localidad: ${form.localidad}
 
 Área de interés:
 ${form.interes}
-  `;
+    `;
 
-  const response = await fetch("https://formspree.io/f/xbdbllzl", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      nombre: form.Nombre,
-      telefono: form.Telefono,
-      dni: form.DNI,
-      email: form.Email,
-      localidad: form.Localidad,
-      mensaje: body,
-    }),
-  });
+    const response = await fetch("https://formspree.io/f/xbdbllzl", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nombre: form.nombre,
+        telefono: form.telefono,
+        dni: form.dni,
+        email: form.email,
+        localidad: form.localidad,
+        mensaje: body,
+      }),
+    });
 
-  if (response.ok) {
-    alert("Mensaje enviado correctamente ✔");
-  } else {
-    alert("Error al enviar ❌");
-  }
-};
-  const enviarConsulta = (e) => {
+    if (response.ok) {
+      alert("✔ Mensaje enviado correctamente");
+      setForm({
+        nombre: "",
+        telefono: "",
+        dni: "",
+        email: "",
+        localidad: "",
+        interes: "",
+      });
+    } else {
+      alert("❌ Error al enviar");
+    }
+  };
+
+  // CONSULTA (MAILTO)
+  const enviarConsulta = (e: React.FormEvent) => {
     e.preventDefault();
 
     const body = `
@@ -78,10 +94,15 @@ Consulta:
 ${consulta.mensaje}
     `;
 
-    window.location.href = `mailto:walter.aducci@sancorsalud.com.ar.com?subject=Nueva consulta web&body=${encodeURIComponent(
-      body
-    )}`;
+    window.location.href = `mailto:walter.aducci@sancorsalud.com.ar?subject=Nueva consulta web&body=${encodeURIComponent(body)}`;
   };
+
+  return (
+    <main className="bg-white text-black">
+      {/* tu resto del sitio sigue acá */}
+    </main>
+  );
+}
 
   return (
     <main className="bg-white text-black">
