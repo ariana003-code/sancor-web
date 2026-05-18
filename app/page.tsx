@@ -6,14 +6,12 @@ export default function Home() {
   const [showMenu, setShowMenu] = useState(false);
   const [page, setPage] = useState("inicio");
 
-  const [form, setForm] = useState({
-    nombre: "",
-    email: "",
-    localidad: "",
-    celular: "",
-    fijo: "",
-    interes: "",
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setForm({
+    ...form,
+    [e.target.name]: e.target.value,
   });
+};
 
   const [consulta, setConsulta] = useState({
     nombre: "",
