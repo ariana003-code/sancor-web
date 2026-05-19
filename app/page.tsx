@@ -68,25 +68,25 @@ localidad: ${form.localidad}
               />
             </div>
         
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-30">
-              <h1 className="text-5xl font-bold mb-4">
+            <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-6">
+              <h1 className="text-2xl md:text 5x1 font-bold mb-4 leading-tight">
                 ASESORATE POR UN PLAN A TU MEDIDA
               </h1>
 
-             <p className="mb-4 text-xl md:text-1xl font-medium max-w-1xl">
+             <p className="mb-4 text-base md:text-x1 font-medium max-w-xl">
               ENVIANOS TU CONSULTA POR WHATSAPP Y NOS COMUNICAREMOS A LA BREVEDAD
               </p>
 
               <a
-  href="https://wa.me/5491130707897"
-  className="bg-green-500 px-12 py-4 rounded-xl font-semibold flex items-center gap-4"
+  href="https://wa.me/5491155231771"
+  className="bg-green-500 md:px-6 md:py-3 md:px-12 md:py-4 rounded-xl font-semibold flex items-center gap-3 md:gap-4"
 >
   <img
     src="/logowssp.png"
-    className="w-16 h-16 object-contain"
+    className="w-10 h-10 md:w-16 md:h-16 object-contain"
   />
 
-  <span className="text-4xl font-bold leading-none">
+  <span className="text-x1 md:text-4xl font-bold leading-none">
     Whatsapp
   </span>
 </a>
@@ -130,6 +130,7 @@ localidad: ${form.localidad}
 
               <input
                 name="nombre"
+                required
                 onChange={handleChange}
                 placeholder="Nombre y Apellido"
                 className="w-full p-2 border mb-2 text-white bg-transparent placeholder-white rounded"
@@ -137,6 +138,7 @@ localidad: ${form.localidad}
 
               <input
                 name="telefono"
+                required
                 onChange={handleChange}
                 placeholder="Teléfono/Celular/Whatsapp"
                 className="w-full p-2 border mb-2 text-white bg-transparent placeholder-white rounded"
