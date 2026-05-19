@@ -70,7 +70,7 @@ localidad: ${form.localidad}
         
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-6">
               <h1 className="text-2xl md:text 5x1 font-bold mb-4 leading-tight">
-                 Consulta con Sancor salud tus planes con Asesoramiento Personalizado
+                 Asesoramiento Personalizado con Sancor Salud
               </h1>
 
              <p className="mb-4 text-base md:text-x1 font-medium max-w-xl">
