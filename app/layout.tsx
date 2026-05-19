@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Sancor Salud | Planes de Salud y Asesoramiento",
   description:
-    "Asesoramiento personalizado en planes de Sancor Salud. Consultá cobertura, beneficios y descuentos.",
+  "Asesoramiento personalizado en planes de Sancor Salud. Compará coberturas, beneficios y opciones de prepaga en Argentina. Información clara para elegir tu obra social de forma rápida y sencilla.",
 };
 
 export default function RootLayout({
