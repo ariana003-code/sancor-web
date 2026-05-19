@@ -79,14 +79,14 @@ localidad: ${form.localidad}
 
               <a
   href="https://wa.me/5491155231771"
-   className="bg-green-500 px-6 py-3 md:px-12 md:py-4 rounded-xl font-semibold flex items-center justify-center gap-2 md:gap-4"
+    className="bg-green-500 w-fit mx-auto md:mx-0 px-4 py-2 md:px-12 md:py-4 rounded-xl font-semibold flex items-center justify-center gap-2 md:gap-4"
 >
   <img
     src="/logowssp.png"
-    className="w-8 h-8 md:w-16 md:h-16 object-contain"
+    className="w-6 h-6 md:w-16 md:h-16 object-contain shrink-0"
   />
 
-  <span className="text-xl md:text-4xl font-bold leading-none">
+  <span className="text-lg md:text-4xl font-bold leading-none whitespace-nowrap">
     WhatsApp
   </span>
 </a>
