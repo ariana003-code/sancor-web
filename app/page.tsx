@@ -3,53 +3,35 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [showMenu, setShowMenu] = useState(false);
-  const [page, setPage] = useState("inicio");
 
-  // FORM PRINCIPAL
   const [form, setForm] = useState({
     nombre: "",
     telefono: "",
     dni: "",
     email: "",
     localidad: "",
-    interes: "",
   });
-
-  // CONSULTA
-  const [consulta, setConsulta] = useState({
-    nombre: "",
-    email: "",
-    telefono: "",
-    localidad: "",
-    plan: "",
-    mensaje: "",
-  });
-
-  // HANDLE CHANGE (UN SOLO, CORRECTO)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const { name, value } = e.target;
 
-  // ENVIAR FORM A FORMSPREE
+  setForm((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
+
   const enviarMail = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const body = `
-Nombre: ${form.nombre}
-Teléfono: ${form.telefono}
+nombre: ${form.nombre}
+teléfono: ${form.telefono}
 DNI: ${form.dni}
-Email: ${form.email}
-Localidad: ${form.localidad}
+email: ${form.email}
+localidad: ${form.localidad}
+`;
 
-Área de interés:
-${form.interes}
-    `;
-
-    const response = await fetch("https://formspree.io/f/xbdbllzl", {
+    await fetch("https://formspree.io/f/xbdbllzl", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,95 +46,12 @@ ${form.interes}
       }),
     });
 
-    if (response.ok) {
-      alert("✔ Mensaje enviado correctamente");
-      setForm({
-        nombre: "",
-        telefono: "",
-        dni: "",
-        email: "",
-        localidad: "",
-        interes: "",
-      });
-    } else {
-      alert("❌ Error al enviar");
-    }
-  };
-
-  // CONSULTA (MAILTO)
-  const enviarConsulta = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const body = `
-Nombre: ${consulta.nombre}
-E-mail: ${consulta.email}
-Teléfono: ${consulta.telefono}
-Localidad: ${consulta.localidad}
-Tipo de plan: ${consulta.plan}
-
-Consulta:
-${consulta.mensaje}
-    `;
-
-    window.location.href = `mailto:walter.aducci@sancorsalud.com.ar?subject=Nueva consulta web&body=${encodeURIComponent(body)}`;
+    alert("✔ Mensaje enviado");
   };
 
   return (
     <main className="bg-white text-black">
-      {/* tu resto del sitio sigue acá */}
-    </main>
-  );
-}
 
-  return (
-    <main className="bg-white text-black">
-      {/* ================= MENU ================= */}
-      {showMenu && (
-        <div className="fixed top-0 right-0 w-[90%] max-w-md h-full bg-white text-black p-6 z-50 shadow-lg">
-          <button
-            onClick={() => setShowMenu(false)}
-            className="mb-6 text-xl"
-          >
-            ✕ Cerrar
-          </button>
-
-          <div className="flex flex-col gap-4">
-            <button
-              onClick={() => {
-                setPage("inicio");
-                setShowMenu(false);
-              }}
-              className="bg-gray-200 p-3 rounded"
-            >
-              Inicio
-            </button>
-
-            <button
-              onClick={() => {
-                setPage("planes");
-                setShowMenu(false);
-              }}
-              className="bg-[#334f67] text-white p-3 rounded"
-            >
-              SanCorSalud, Nuestros Planes
-            </button>
-
-            <button
-              onClick={() => {
-                setPage("cotizacion");
-                setShowMenu(false);
-              }}
-              className="bg-red-500 text-white p-3 rounded"
-            >
-              Pedir Cotización
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* ================= INICIO ================= */}
-      {page === "inicio" && (
-  <>
           {/* HERO */}
           <section className="relative w-full h-[600px]">
             <img
@@ -220,7 +119,7 @@ ${consulta.mensaje}
               
             </div>
 
-            {/* FORMULARIO */}
+{/* FORMULARIO */}
 <form
   onSubmit={enviarMail}
   className="w-full max-w-md bg-[#334f67]/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl text-white"
@@ -230,35 +129,35 @@ ${consulta.mensaje}
               </h2>
 
               <input
-                name="Nombre"
+                name="nombre"
                 onChange={handleChange}
                 placeholder="Nombre y Apellido"
                 className="w-full p-2 border mb-2 text-white bg-transparent placeholder-white rounded"
               />
 
               <input
-                name="Telefono"
+                name="telefono"
                 onChange={handleChange}
                 placeholder="Teléfono/Celular/Whatsapp"
                 className="w-full p-2 border mb-2 text-white bg-transparent placeholder-white rounded"
               />
 
               <input
-                name="DNI"
+                name="dni"
                 onChange={handleChange}
                 placeholder="DNI (opcional)"
                 className="w-full p-2 border mb-2 text-white bg-transparent placeholder-white rounded"
               />
 
               <input
-                name="Email"
+                name="email"
                 onChange={handleChange}
                 placeholder="E-mail (opcional)"
                 className="w-full p-2 border mb-2 text-white bg-transparent placeholder-white rounded"
               />
 
               <input
-                name="Localidad"
+                name="localidad"
                 onChange={handleChange}
                 placeholder="Localidad (opcional)"
                 className="w-full p-2 border mb-2 text-white bg-transparent placeholder-white rounded"
@@ -500,9 +399,7 @@ ${consulta.mensaje}
     </div>
   </div>
 </div>
-  </>
-)}
 
-</main>
-);
+    </main>
+  );
 }
