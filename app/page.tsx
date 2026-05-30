@@ -291,10 +291,10 @@ localidad: ${form.localidad}
 
     <div className="grid gap-8">
 
-      {/* PLAN S1000 */}
+      {/* PLAN 1000 */}
       <div className="bg-[#334f67]/85 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white/20 text-white">
        <h3 className="font-bold text-3xl mb-4 text-white">
-          Plan S1000
+          Plan 1000
         </h3>
 
         <ul className="text-sm md:text-base space-y-2 text-white/90">
@@ -313,10 +313,10 @@ localidad: ${form.localidad}
         </ul>
       </div>
 
-      {/* PLAN S1500 */}
+      {/* PLAN 1500 */}
       <div className="bg-[#334f67]/85 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white/20 text-white">
        <h3 className="font-bold text-3xl mb-4 text-white">
-          Plan S1500
+          Plan 1500
         </h3>
 
         <ul className="text-sm md:text-base space-y-2 text-white/90">
@@ -335,10 +335,10 @@ localidad: ${form.localidad}
         </ul>
       </div>
 
-      {/* PLAN S3000 */}
+      {/* PLAN 3000 */}
       <div className="bg-[#334f67]/85 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white/20 text-white">
       <h3 className="font-bold text-3xl mb-4 text-white">
-          Plan S3000
+          Plan 3000
         </h3>
 
         <ul className="text-sm md:text-base space-y-2 text-white/90">
@@ -358,10 +358,10 @@ localidad: ${form.localidad}
         </ul>
       </div>
 
-      {/* PLAN S4500 */}
+      {/* PLAN 4500 */}
       <div className="bg-[#334f67]/85 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white/20 text-white">
         <h3 className="font-bold text-3xl mb-4 text-white">
-          Plan S4500
+          Plan 4500
         </h3>
 
         <ul className="text-sm md:text-base space-y-2 text-white/90">
@@ -379,10 +379,10 @@ localidad: ${form.localidad}
         </ul>
       </div>
 
-      {/* PLAN S5000 */}
+      {/* PLAN 5000 */}
       <div className="bg-[#334f67]/85 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white/20 text-white">
         <h3 className="font-bold text-3xl mb-4 text-white">
-          Plan S5000
+          Plan 5000
         </h3>
 
         <ul className="text-sm md:text-base space-y-2 text-white/90">
