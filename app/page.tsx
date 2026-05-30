@@ -78,7 +78,7 @@ localidad: ${form.localidad}
               </p>
 
               <a
-  href="https://wa.me/5491155231771"
+  href="https://wa.me/5491130707897"
     className="bg-green-500 w-fit mx-auto md:mx-0 px-4 py-2 md:px-12 md:py-4 rounded-xl font-semibold flex items-center justify-center gap-2 md:gap-4"
 >
   <img
